@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Mensagem {
+  id           String   @id @default(uuid())
+  titulo       String
+  conteudo     String
+  publicado    Boolean   
+  qtdLikes     Int
+  @@map("mensagem")
+}
